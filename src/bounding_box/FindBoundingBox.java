@@ -35,6 +35,27 @@ public class FindBoundingBox {
         double ne = -((Math.sqrt(k) * r * Math.sqrt((Math.pow(r, 2) + 1))) + (n1 * (-Math.pow(r, 2) - 1))) / denomOfE;
         double te = (((Math.pow(r, 2) + 1) * t1) - (Math.sqrt(k) * Math.sqrt((Math.pow(r, 2)) + 1))) / denomOfE;
 
+        double nj = (n1 + n2) / 2;
+        double tj = (t1 + t2) / 2;
+        double d2 = Math.pow((distance / 2), 2);
+
+        double denomForG = Math.pow(tj, 2) - (2 * t1 * tj) + Math.pow(t1, 2) + Math.pow(nj, 2) - (2 * n1 * nj) + Math.pow(n1, 2);
+        double sharedRoot = Math.sqrt(d2 * (Math.pow(tj, 2) - (2 * t1 * tj) + Math.pow(t1, 2) +
+                Math.pow(nj, 2) - (2 * n1 * nj) + Math.pow(n1, 2)));
+        double ng = -((-(Math.pow(n1, 2) * nj) + (2 * n1 * Math.pow(nj, 2)) - (Math.pow(nj, 3)) - (nj * Math.pow(t1, 2)) +
+                (2 * nj * t1 * tj) - (nj * Math.pow(tj, 2)) + ((tj - t1) * sharedRoot)) / denomForG);
+        double tg = ((tj * (Math.pow(t1, 2) + Math.pow(nj, 2) - (2 * n1 * nj) + Math.pow(n1, 2))) - (2 * t1 * Math.pow(tj, 2)) +
+                Math.pow(tj, 3) + ((nj - n1) * sharedRoot)) / denomForG;
+
+        double nh = ng - nj + ne;
+        double th = tg - tj + te;
+        double nc = nj - ng + nj;
+        double tc = tj - tg + tj;
+        double ni = nc + ng - nh;
+        double ti = tc + tg - th;
+
+        $ = new BoundingBox(new Coordinate(nh, th), new Coordinate(ni,ti));
+
         return $;
     }
 }
