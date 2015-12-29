@@ -7,27 +7,27 @@ import utils.Coordinate;
  * The class will hold a rectangle in a form of {minLat, minLon, maxLat, maxLon}
  */
 public class BoundingBox {
-    private Coordinate topLeft;
-    private Coordinate bottomRight;
+    private Coordinate min;
+    private Coordinate max;
 
-    public BoundingBox(Coordinate topLeft, Coordinate bottomRight) {
-        this.topLeft = topLeft;
-        this.bottomRight = bottomRight;
+    public BoundingBox(Coordinate min, Coordinate max) {
+        this.min = min;
+        this.max = max;
     }
 
-    public Coordinate getTopLeft() {
-        return topLeft;
+    public Coordinate getMin() {
+        return min;
     }
 
-    public Coordinate getBottomRight() {
-        return bottomRight;
+    public Coordinate getMax() {
+        return max;
     }
 
     @Override
     public String toString() {
         return "BoundingBox{" +
-                "topLeft=" + topLeft +
-                ", bottomRight=" + bottomRight +
+                "min=" + min +
+                ", max=" + max +
                 '}';
     }
 }
