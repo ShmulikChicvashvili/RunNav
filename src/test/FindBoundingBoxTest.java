@@ -9,9 +9,9 @@ import utils.Coordinate;
  */
 public class FindBoundingBoxTest {
     public static void main(String[] args) {
-        Coordinate start = new Coordinate(1, 1);
-        Coordinate end = new Coordinate(2, 2);
-        BoundingBox bbox = FindBoundingBox.execute(start, end, 5);
+        Coordinate start = new Coordinate(4, 3);
+        Coordinate end = new Coordinate(9, 6);
+        BoundingBox bbox = FindBoundingBox.execute(start, end, 1);
 
         System.out.println(bbox);
     }

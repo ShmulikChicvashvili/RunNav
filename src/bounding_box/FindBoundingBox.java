@@ -44,7 +44,7 @@ public class FindBoundingBox {
                 Math.pow(nj, 2) - (2 * n1 * nj) + Math.pow(n1, 2)));
         double ng = -((-(Math.pow(n1, 2) * nj) + (2 * n1 * Math.pow(nj, 2)) - (Math.pow(nj, 3)) - (nj * Math.pow(t1, 2)) +
                 (2 * nj * t1 * tj) - (nj * Math.pow(tj, 2)) + ((tj - t1) * sharedRoot)) / denomForG);
-        double tg = ((tj * (Math.pow(t1, 2) + Math.pow(nj, 2) - (2 * n1 * nj) + Math.pow(n1, 2))) - (2 * t1 * Math.pow(tj, 2)) +
+        double tg = -((-tj * (Math.pow(t1, 2) + Math.pow(nj, 2) - (2 * n1 * nj) + Math.pow(n1, 2))) + (2 * t1 * Math.pow(tj, 2)) -
                 Math.pow(tj, 3) + ((nj - n1) * sharedRoot)) / denomForG;
 
         double nh = ng - nj + ne;
